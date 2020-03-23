@@ -1,4 +1,4 @@
-var scriptArr = ["popper.min", "fontawesome", "bootstrap.min", "notify.min", "jquery.validate.min", "elementShow", "authorization", "loadingoverlay.min", "logout"];
+var scriptArr = ["popper.min", "fontawesome", "bootstrap.min", "notify.min", "jquery.validate.min", "elementShow", "authorization", "loadingoverlay.min", "modernizr-2.6.2.min", "main", "logout"];
 
 var serviceconfigScripts = {
 "login": "login",
