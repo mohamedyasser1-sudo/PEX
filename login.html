@@ -7,10 +7,22 @@
         <title>Login</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
     </head>
     <body>
-
-
+        <!--
+<div class="container display-none" id="alert-msg">
+    <div class="row">
+<div class="col-12" id="appendedMsg">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+   <span class="msgConrent"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</div>
+</div>
+</div>-->
         <div class="login">
 
             <div class="row no-gutters align-items-center">
@@ -24,20 +36,20 @@
 <!--                            <p>Already have an account? <a href="#">Login</a></p>-->
                         </div>
 
-                        <form>
+                        <form method="POST" id="loginForm">
 
                             <div class="form-group">
 <!--                                <label for="email-address">Email Address</label>-->
-                                <input type="email" class="form-control form-control-lg" id="email-address" placeholder="Email">
+                                <input type="email" class="form-control form-control-lg" id="email-address" placeholder="Email" name="mail">
                             </div>
 
                             <div class="form-group">
 <!--                                <label for="password">Password</label>-->
-                                <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
-                                <small><a href="#">forgot password?</a></small>
+                                <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
+                                <small><a href="./forgot-password.html">forgot password?</a></small>
                             </div>
 
-                            <input type="submit" class="btn" onclick="fireLoginService()" value="Login">
+                            <input type="submit" class="btn" value="Login">
                           
                         </form>
                     </div>
@@ -47,10 +59,7 @@
 
 
 
-
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="serviceconfig/serviceconfig.js"></script>
+<script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="./js/dynamicallyLoadScript.js"></script>
     </body>
 </html>

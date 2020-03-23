@@ -13,7 +13,7 @@
 
 
         <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #C9C5C5 !important;">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.html">
                 <i class="fas fa-camera"></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,39 +39,48 @@
                     </form>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="./index.html">Home</a>
                     </li>
-
+                     <li class="nav-item anonymousHiddenElement">
+                        <a class="nav-link" href="./join.html">Join</a>
+                    </li>
+ <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Join
                         </a>
+                       
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </li>
 
+                    </li>
+-->
                     <li class="nav-item">
                     <span class="file-input btn btn-primary btn-file">
                         upload a photo <input type="file" multiple style="opacity: 0">
                     </span>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item showenElement">
                         <a class="nav-link" href="#">
                             <i class="fas fa-bell"></i>
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item showenElement">
+                        <a class="nav-link" href="./profile.html">
                             <div class="avatar">
                                 <img src="images/avatar.png" class="img-thumbnail img-fluid" alt="">
                             </div>
                         </a>
+                    </li>
+
+                    <li class="nav-item showenElement">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
                     </li>
 
                 </ul>
@@ -659,10 +668,8 @@
         </div>
 
 
-
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/fontawesome.js"></script>
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="./js/dynamicallyLoadScript.js"></script>
+        
     </body>
 </html>

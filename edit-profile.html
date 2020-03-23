@@ -12,7 +12,7 @@
 
 
         <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #fff">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.html">
                 <i class="fas fa-camera"></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +38,13 @@
                     </form>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="./index.html">Home</a>
                     </li>
 
+                      <li class="nav-item anonymousHiddenElement">
+                        <a class="nav-link" href="./join.html">Join</a>
+                    </li>
+<!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Join
@@ -51,7 +55,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </li>
+                    </li>-->
 
                     <li class="nav-item">
                     <span class="file-input btn btn-primary btn-file">
@@ -59,19 +63,24 @@
                     </span>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item showenElement">
                         <a class="nav-link" href="#">
                             <i class="fas fa-bell"></i>
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item showenElement">
                         <a class="nav-link" href="#">
                             <div class="avatar">
-                                <img src="images/avatar.png" class="img-thumbnail img-fluid" alt="">
+                                <img src="./images/avatar.png" class="img-thumbnail img-fluid" alt="">
                             </div>
                         </a>
                     </li>
+
+                     <li class="nav-item showenElement">
+                        <a class="nav-link" href="">Logout</a>
+                    </li>
+
 
                 </ul>
             </div>
@@ -92,32 +101,37 @@
                                 <div class="change-profile">
                                     <h2 class="text-center">Edit Profile</h2>
                                     <div class="avatar">
-                                        <img src="images/avatar.png" class="img-thumbnail img-fluid" alt="">
+                                        <img src="./images/avatar.png" class="img-thumbnail img-fluid" alt="" id="profile_pic">
                                     </div>
                                     <p>Change profile image</p>
                                 </div>
 
-                                <form>
+                                <form method="POST" id="editForm">
                                     <div class="form-row">
                                         <div class="form-group col-sm-12 col-md-6">
                                             <label for="first-name">First Name</label>
-                                            <input type="text" class="form-control form-control-lg" id="first-name" placeholder="Ex: Mahmoud">
+                                            <input type="text" class="form-control form-control-lg" id="first-name" placeholder="" name="first_name">
                                         </div>
 
                                         <div class="form-group col-sm-12 col-md-6">
                                             <label for="last-name">Last Name</label>
-                                            <input type="text" class="form-control form-control-lg" id="last-name" placeholder="Ex: Saied">
+                                            <input type="text" class="form-control form-control-lg" id="last-name" placeholder="" name="last_name">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email-address">Email Address</label>
-                                        <input type="email" class="form-control form-control-lg" id="email-address" placeholder="Ex: ali55255@gmail.com">
+                                        <input type="email" class="form-control form-control-lg" id="email-address" placeholder="" name="email">
                                     </div>
 
+                                        <div class="form-group">
+                                <label for="email-address">Phone</label>
+                                <input type="number" class="form-control form-control-lg" id="phone" placeholder="" name="phone">
+                            </div>
+
                                     <div class="form-group">
-                                        <label for="paypal-email">Password</label>
-                                        <input type="password" class="form-control form-control-lg" id="paypal-email">
+                                        <label for="paypal-email">Website</label>
+                                        <input type="text" class="form-control form-control-lg" id="website" placeholder="" name="website">
                                     </div>
 
                                     <br>
@@ -138,12 +152,12 @@
                                     <div class="form-row">
                                         <div class="form-group col-sm-12 col-md-6">
                                             <label for="instagran">Linkedin username</label>
-                                            <input type="text" class="form-control form-control-lg" id="instagran">
+                                            <input type="text" class="form-control form-control-lg" id="linkedin" placeholder="" name="instagram">
                                         </div>
 
                                         <div class="form-group col-sm-12 col-md-6">
                                             <label for="twitter">Instagram username</label>
-                                            <input type="text" class="form-control form-control-lg" id="twitter">
+                                            <input type="text" class="form-control form-control-lg" id="instagram" placeholder="" name="linkedin">
                                         </div>
                                     </div>
 
@@ -156,8 +170,8 @@
 
                                     <div class="form-group">
                                         <label for="bio">Bio </label>
-                                        <textarea class="form-control" id="bio"></textarea>
-                                        <small><a href="#">forgot password?</a></small>
+                                        <textarea class="form-control" id="bio" name="bio" placeholder=""></textarea>
+                                       
                                     </div>
 
                                     <input type="submit" class="btn" value="Update">
@@ -171,10 +185,9 @@
 
 
 
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="./js/dynamicallyLoadScript.js"></script>  
+       
 
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/fontawesome.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
