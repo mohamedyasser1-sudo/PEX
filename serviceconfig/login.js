@@ -40,6 +40,7 @@ $('document').ready(function() {
         console.log("Data");
         console.log(data);
         if(!localStorage.hasOwnProperty('userToken')){
+            $.LoadingOverlay("show");
         $.ajax({
             type: 'POST',
             url: restPath,
@@ -54,6 +55,7 @@ $('document').ready(function() {
                 //var resData = JSON.stringify(data.data.user.name);
                 //var accName = data.user.name;
                 //console.log(resData.name);
+                $.LoadingOverlay("hide");
                 localStorage.setItem('userToken', JSON.stringify(data.data.token));
                 $('#alert-msg .msgConrent').html('');
                 $("#alert-msg").removeClass("display-none");
@@ -65,7 +67,7 @@ $('document').ready(function() {
                 $.notify("Access granted, Hello" + JSON.stringify(data.data.user.first_name), "success");
                 setTimeout(function() {
                     window.location = "./index.html";
-                }, 3000);
+                }, 1000);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log("Status: " + textStatus);

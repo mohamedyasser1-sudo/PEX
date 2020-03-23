@@ -57,6 +57,7 @@ $('document').ready(function() {
         //console.log(data + '&profile_pic=' + filePath);
         */
         if (!localStorage.hasOwnProperty('userToken')) {
+            $.LoadingOverlay("show");
         $.ajax({
             type: 'POST',
             url: restPath,
@@ -66,6 +67,7 @@ $('document').ready(function() {
                 $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   sending ...');
             },
             success: function(data) {
+                $.LoadingOverlay("hide");
                 console.log("success");
                 console.log(data);
                 localStorage.setItem('userToken', JSON.stringify(data.data.token));

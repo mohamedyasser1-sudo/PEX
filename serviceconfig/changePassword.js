@@ -58,6 +58,7 @@ $('document').ready(function() {
         if(localStorage.hasOwnProperty('userToken')){
             console.log("Inside Submit to send");
             var userTokenVal = localStorage.getItem('userToken');
+            $.LoadingOverlay("show");
         $.ajax({
             type: 'POST',
             url: restPath,
@@ -69,6 +70,7 @@ $('document').ready(function() {
                
             },
             success: function(data) {
+                $.LoadingOverlay("hide");
                 console.log("success");
                 console.log("Inside Edit Profile success Fun");
                 console.log(data);

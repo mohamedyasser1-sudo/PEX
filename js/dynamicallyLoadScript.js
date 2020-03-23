@@ -1,4 +1,4 @@
-var scriptArr = ["popper.min", "fontawesome", "bootstrap.min", "notify.min", "jquery.validate.min", "elementShow", "authorization", "logout"];
+var scriptArr = ["popper.min", "fontawesome", "bootstrap.min", "notify.min", "jquery.validate.min", "elementShow", "authorization", "loadingoverlay.min", "logout"];
 
 var serviceconfigScripts = {
 "login": "login",
@@ -86,7 +86,6 @@ function LoadConfigScript() {
      loadScript(serviceconfigScripts.editProfile, "config", function(){console.log("Complete load script");});
     break;
     case "change-password.html":
-    dynamicallyLoadScript(serviceconfigScripts.changePassword, "config");
     loadScript(serviceconfigScripts.changePassword, "config", function(){console.log("Complete load script");});
     break;
 }

@@ -12,6 +12,7 @@ $('document').ready(function() {
         //console.log(data);
         if(localStorage.hasOwnProperty('userToken')){
             var userTokenVal = localStorage.getItem('userToken');
+            $.LoadingOverlay("show");
         $.ajax({
             type: 'POST',
             url: restPathLogout,
@@ -23,6 +24,7 @@ $('document').ready(function() {
                
             },
             success: function(data) {
+                $.LoadingOverlay("hide");
                 console.log("Inside success Fun");
                 $.notify("You logout, Looking forward to your return", "success");
                 localStorage.removeItem('userToken');
@@ -46,6 +48,7 @@ $('document').ready(function() {
 
   $("#logoutBtn").click(function(event){
     event.preventDefault();
+    $.LoadingOverlay("show");
     $.notify("You logout, Looking forward to your return", "success");
     localStorage.removeItem('userToken');
     window.location = "./index.html";
