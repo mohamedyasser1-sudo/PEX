@@ -1,0 +1,16 @@
+#alert-msg{
+
+	position: absolute;
+    z-index: 1;
+    width: 50%;
+    top: 12px;
+    left: 21%;
+}
+
+.display-block {
+	display: block;
+}
+
+.display-none {
+	display: none;
+}

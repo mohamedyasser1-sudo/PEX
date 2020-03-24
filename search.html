@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Search</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="css/slick-theme.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/preloading.css">
+    </head>
+    <body style="background-color: #C9C5C5 !important;">
+
+        
+<div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+        
+
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #C9C5C5 !important;">
+            <a class="navbar-brand" href="./index.html">
+                <i class="fas fa-camera"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ml-auto">
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            </div>
+                            <input class="form-control form-control-lg mr-sm-2" type="search" placeholder="Search free high-resolution photos" aria-label="Search">
+                            <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">
+                                <button class="btn btn-primary btn-sm">Search</button>
+                            </span>
+                            </div>
+                        </div>
+                    </form>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item anonymousHiddenElement">
+                        <a class="nav-link" href="./join.html">Join</a>
+                    </li>
+<!--
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Join
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>-->
+
+                    <li class="nav-item">
+                    <span class="file-input btn btn-primary btn-file">
+                        upload a photo <input type="file" multiple style="opacity: 0">
+                    </span>
+                    </li>
+
+                    <li class="nav-item showenElement">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item showenElement">
+                        <a class="nav-link" href="./profile.html">
+                            <div class="avatar">
+                                <img src="images/avatar.png" class="img-thumbnail img-fluid" alt="">
+                            </div>
+                        </a>
+                    </li>
+
+                     <li class="nav-item showenElement">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="search-tags">
+            <div class="container-fluid">
+                <div class="tags">
+                    <a href="#" class="btn btn-primary">Tag One</a>
+                    <a href="#" class="btn btn-primary">Tag Two</a>
+                    <a href="#" class="btn btn-primary">Tag three</a>
+                    <a href="#" class="btn btn-primary">Tag four</a>
+                    <a href="#" class="btn btn-primary">Tag five</a>
+                    <a href="#" class="btn btn-primary">Tag six</a>
+                    <a href="#" class="btn btn-primary">Tag Seven</a>
+                    <a href="#" class="btn btn-primary">Tag Eight</a>
+                    <a href="#" class="btn btn-primary">Tag nine</a>
+                    <a href="#" class="btn btn-primary">Tag Ten</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="gallery-nav">
+            <div class="container">
+                <h2>Search Tag</h2>
+                <p>505 Photos</p>
+            </div>
+        </div>
+
+
+
+        <div class="gallery-grid-search">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="photos d-none d-lg-flex">
+                            <div class="photos__column">
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="photos__column">
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="photos__column">
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="photos d-none d-md-flex d-lg-none">
+                            <div class="photos__column">
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="photos__column">
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="photos d-block d-sm-block d-md-none">
+                            <div class="photos__column">
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="https://images.pexels.com/photos/3655865/pexels-photo-3655865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-box">
+                                    <div class="heart">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                    <div class="user-image">
+                                        <img src="images/face.jpg" alt="">
+                                    </div>
+                                    <img src="images/grid-2.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<script src="./js/jquery-3.3.1.min.js"></script>
+       <script src="./js/dynamicallyLoadScript.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                $('.search-tags .tags').slick({
+                    dots: true,
+                    infinite: true,
+                    slidesToShow: 8,
+                    slidesToScroll: 1,
+                    speed: 400,
+                    centerMode: false,
+                    variableWidth: true,
+                    autoplay: true,
+                })
+
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/preloading.css">
+    </head>
+    <body>
+
+<div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+        
+        <div class="login">
+
+            <div class="row no-gutters align-items-center">
+                <div class="col-12 col-sm-6 col-md-7 col-lg-7">
+                    <div class="img-box"></div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-5 col-lg-3 offset-lg-1">
+                    <div class="join align-self-center">
+                        <div class="info">
+                            <h2>Beautiful, free photos.</h2>
+<!--                            <p>Already have an account? <a href="#">Login</a></p>-->
+                        </div>
+
+                        <form method="POST" id="loginForm">
+
+                            <div class="form-group">
+<!--                                <label for="email-address">Email Address</label>-->
+                                <input type="email" class="form-control form-control-lg" id="email-address" placeholder="Email" name="mail">
+                            </div>
+
+                            <div class="form-group">
+<!--                                <label for="password">Password</label>-->
+                                <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
+                                <small><a href="./forgot-password.html">forgot password?</a></small>
+                            </div>
+
+                            <input type="submit" class="btn" value="Login">
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+<script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="./js/dynamicallyLoadScript.js"></script>
+    </body>
+</html>
