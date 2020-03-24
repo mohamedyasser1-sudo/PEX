@@ -77,6 +77,7 @@ $('document').ready(function() {
                 }, 2000);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
+                $.LoadingOverlay("hide");
                 console.log("Status: " + textStatus);
                 console.log("Error: " + errorThrown);
                 console.log(JSON.stringify(XMLHttpRequest));

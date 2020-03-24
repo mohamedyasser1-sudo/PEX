@@ -56,6 +56,7 @@ $('document').ready(function() {
                 //location.reload();
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
+                $.LoadingOverlay("hide");
                 console.log("Status: " + textStatus);
                 console.log("Error: " + errorThrown);
                 console.log(JSON.stringify(XMLHttpRequest));
