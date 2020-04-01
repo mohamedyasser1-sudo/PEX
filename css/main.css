@@ -125,11 +125,17 @@
   text-decoration: none;
   padding-left: 0;
   color: rgba(0, 0, 0, 0.56);
-  font-weight: 500; }
+  font-weight: 500;
+    display: inline-block;
+        cursor: pointer;
+   }
   .gallery-nav .nav .nav-item .nav-link.active {
-    color: #000; }
+    /*color: #000;*/}
   .gallery-nav .nav .nav-item .nav-link.new {
-    position: relative; }
+    position: relative; 
+    color: #000;
+
+  }
     .gallery-nav .nav .nav-item .nav-link.new:after {
       content: '';
       display: flex;
@@ -574,26 +580,27 @@
     padding: 0.6rem 0; }
 
 .search-tags {
-  padding: 2rem 0;
+ 
   overflow: hidden; }
   .search-tags .tags {
     overflow: hidden; }
     .search-tags .tags .btn {
       margin-right: 0.5rem;
-      padding: 0.3rem 2.3rem;
-      background-color: #929292 !important;
+      
+      background-color: #929292;
       color: #fff !important;
       border-color: #929292 !important;
-      font-size: 1rem; }
+      font-size: 1rem;
+    margin: 5px;
+            min-width: 100px;
+       }
       .search-tags .tags .btn:active, .search-tags .tags .btn:focus, .search-tags .tags .btn:not(:disabled):not(.disabled):active:focus {
         box-shadow: none; }
 
 .gallery-nav {
-  padding: 2rem 0; }
+ }
   .gallery-nav h2 {
-    margin-bottom: 1.6rem;
-    font-size: 2rem;
-    font-weight: bold;
+
     margin-top: 2rem; }
   .gallery-nav p {
     font-size: 1.2rem; }
@@ -810,3 +817,73 @@
             width: 23px;
             height: 23px;
             border-radius: 50%; }
+
+
+
+.imgBoxDisplay {
+  display: none;
+}
+.imgBox {
+     margin: 5px 0;
+}
+
+
+.imgBox .heart {
+  position: absolute;
+    bottom: 10px;
+    right: 27px;
+    background-color: #FF6565;
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+
+.imgBox .plus {
+      position: absolute;
+    bottom: 10px;
+    left: 24px;
+    background-color: #924EF2;
+    width: 27px;
+    height: 27px;
+    line-height: 24px;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.imgBox .user-image img{
+      width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ffff;
+    position: absolute;;
+       top: 10px;
+    left: 22px;
+}
+.imgBox .basicImg {}
+
+
+.tagsHead {
+
+}
+
+.tagBlock .tagName {
+    width: 100px;
+    height: 40px;
+    background: red;
+    padding: 10px;
+}
+
+
+
+.wasClicked {
+      background-color: #b59090 !important;
+}

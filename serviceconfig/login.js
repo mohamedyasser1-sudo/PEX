@@ -57,6 +57,7 @@ $('document').ready(function() {
                 //console.log(resData.name);
                 $.LoadingOverlay("hide");
                 localStorage.setItem('userToken', JSON.stringify(data.data.token));
+                localStorage.setItem('userimg', JSON.stringify(data.data.user.profile_pic));
                 $('#alert-msg .msgConrent').html('');
                 $("#alert-msg").removeClass("display-none");
                 $("#alert-msg").addClass("display-block");

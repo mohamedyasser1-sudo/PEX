@@ -5,7 +5,11 @@ var serviceconfigScripts = {
 "join": "join",
 "getLoggedUser": "getLoggedUser",
 "editProfile": "editProfile",
-"changePassword": "changePassword"
+"changePassword": "changePassword",
+"getTopLikedImgs": "getTopLikedImgs",
+"getAllTags": "getAllTags",
+"getAllCats": "getAllCats",
+"getImgs": "getImgs"
 };
 
 var pathUrl = window.location.pathname;
@@ -87,6 +91,16 @@ function LoadConfigScript() {
     break;
     case "change-password.html":
     loadScript(serviceconfigScripts.changePassword, "config", function(){console.log("Complete load script");});
+    break;
+    case "index.html":
+    //loadScript(serviceconfigScripts.getTopLikedImgs, "config", function(){console.log("Complete load script");});
+    //loadScript(serviceconfigScripts.getAllTags, "config", function(){console.log("Complete load script");});
+    //loadScript(serviceconfigScripts.getAllCats, "config", function(){console.log("Complete load script");});
+    loadScript(serviceconfigScripts.getImgs, "config", function(){console.log("Complete load script");});
+    break;
+    case "search.html":
+    loadScript(serviceconfigScripts.getAllTags, "config", function(){console.log("Complete load script");});
+    loadScript(serviceconfigScripts.getAllCats, "config", function(){console.log("Complete load script");});
     break;
 }
  
