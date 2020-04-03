@@ -455,7 +455,7 @@
       font-weight: 600; }
 
 .show-image {
-  padding: 3rem 0;
+  padding: 0.5rem 0;
   position: relative; }
   .show-image .close-btn {
     position: relative;
@@ -825,6 +825,7 @@
 }
 .imgBox {
      margin: 5px 0;
+         cursor: pointer;
 }
 
 
@@ -887,3 +888,11 @@
 .wasClicked {
       background-color: #b59090 !important;
 }
+
+
+@media (min-width: 576px) {
+.modal-dialog {
+          max-width: 100%;
+              margin: 1.75rem 4rem;
+   
+}}
