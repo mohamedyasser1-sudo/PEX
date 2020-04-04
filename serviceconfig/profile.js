@@ -152,12 +152,9 @@ $('document').ready(function() {
 
   function drawEleme(src, id, fname, lname) {
     // Div Creation      
+    // Style One
     var mainDiv = document.createElement("div");
     mainDiv.setAttribute('class', 'col-lg-3 col-md-4 col-sm-6');
-
-
-    
-
     var imgBoxDiv = document.createElement("div");
     imgBoxDiv.setAttribute('class', 'user-box');
     mainDiv.appendChild(imgBoxDiv);
@@ -175,6 +172,7 @@ $('document').ready(function() {
     imgBoxDiv.appendChild(basicImgEleme);
     imgBoxDiv.appendChild(nameEleme);
     document.getElementById("myBox").appendChild(mainDiv);
+
   }
 
 });
