@@ -896,3 +896,41 @@
               margin: 1.75rem 4rem;
    
 }}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+
+a:hover {
+     text-decoration: none; 
+}
+
+
+.btn-primary {
+ 
+    background-color: #bdd6f1;
+
+}
+
+
+.btn-primary:hover {
+    background-color: #a9afb5;
+}
+
+
+
+.user-box {}
+.user-box img {
+         border-radius: 30%;
+    margin: 5px 3px;
+    display: block;
+    cursor: pointer;
+}
+.user-box .name {
+          display: block;
+    text-align: center;
+} 

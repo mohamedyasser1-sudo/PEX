@@ -82,7 +82,7 @@ $('document').ready(function() {
       url: restPath,
       contentType: 'application/json',
        headers: {
-               // 'Authorization': (localStorage.hasOwnProperty('userToken') ? 'Bearer ' + localStorage.getItem('userToken').slice(1,-1) : '')
+                'Authorization': (localStorage.hasOwnProperty('userToken') ? 'Bearer ' + localStorage.getItem('userToken').slice(1,-1) : '')
             },
       beforeSend: function() {},
       success: function(data) {
@@ -149,12 +149,12 @@ $('document').ready(function() {
     var plusDiv = document.createElement("div");
     plusDiv.setAttribute('class', 'plus');
     plusDiv.innerHTML = "+";
-    imgBoxDiv.appendChild(plusDiv);
+    //imgBoxDiv.appendChild(plusDiv);
     if (localStorage.hasOwnProperty('userimg')) {
       var userImgDiv = document.createElement("div");
       userImgDiv.setAttribute('class', 'user-image');
       var userImgEleme = document.createElement("img");
-      userImgEleme.setAttribute('src', localStorage.getItem('userimg'));
+      userImgEleme.setAttribute('src', localStorage.getItem('userimg').slice(1, -1));
       imgBoxDiv.appendChild(userImgDiv);
       userImgDiv.appendChild(userImgEleme);
     }
@@ -295,3 +295,9 @@ console.log();
                 }, 1000);
  } 
 }
+
+
+(function getUserImg() {
+    $('#userimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
+
+})();

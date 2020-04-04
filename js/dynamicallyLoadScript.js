@@ -9,7 +9,9 @@ var serviceconfigScripts = {
 "getTopLikedImgs": "getTopLikedImgs",
 "getAllTags": "getAllTags",
 "getAllCats": "getAllCats",
-"getImgs": "getImgs"
+"getImgs": "getImgs",
+"profile": "profile"
+
 };
 
 var pathUrl = window.location.pathname;
@@ -101,6 +103,9 @@ function LoadConfigScript() {
     case "search.html":
     loadScript(serviceconfigScripts.getAllTags, "config", function(){console.log("Complete load script");});
     loadScript(serviceconfigScripts.getAllCats, "config", function(){console.log("Complete load script");});
+    break;
+    case "profile.html":
+    loadScript(serviceconfigScripts.profile, "config", function(){console.log("Complete load script");});
     break;
 }
  
