@@ -66,6 +66,34 @@ $('document').ready(function() {
     console.log("images?tag_id=" + tagValFilr + "&category_id=" + tagcatFilr);
     fireReq("images?tag_id=" + tagValFilr + "&category_id=" + tagcatFilr, "img");
   };
+
+
+
+
+$("#navLinkLike").click(function(){
+  
+  var isImgLicked = $(this).attr("isLiked")
+  var imgId = $(this).attr("currentImgId")
+  
+  if(isImgLicked == 'true') {
+    console.log('Inside True');
+$("#navLinkLike i").css("color", "#000");
+$("#navLinkLike").attr('isLiked', 'false');
+fireReq("like?image_id=" + imgId , "delLike"); 
+
+}
+
+  if(isImgLicked == 'false') {
+    console.log('Inside False');
+$("#navLinkLike i").css("color", "#FF6565");
+$("#navLinkLike").attr('isLiked', 'true');
+fireReq("like?image_id=" + imgId , "like"); 
+
+}
+});
+
+
+
   /* form submit */
   function fireReq(serviceUrl, type) {
     console.log("Inside Submit");
@@ -74,11 +102,28 @@ $('document').ready(function() {
     var restPath = "http://ma3arf.com/aphrodite/public/api/" + serviceUrl.replace(/\s+/g, '');
     console.log("Inside Submfshfhjgfjhjit serviceUrl");
     console.log(serviceUrl);
+    console.log("TTTTTTTYYYYPE");
+    console.log(type);
     console.log(serviceUrl.split(' ').join(''));
     console.log(serviceUrl.replace(/\s+/g, ''));
-    $.LoadingOverlay("show");
+    var methodType = '';
+
+    if(type == "like") {
+         methodType = 'POST';
+    } 
+else if (type == "delLike") {
+         methodType = 'DELETE';
+    }
+    else {
+      $.LoadingOverlay("show");
+         methodType = 'GET';
+    }
+
+   
+
+    //$.LoadingOverlay("show");
     $.ajax({
-      type: 'GET',
+      type: methodType,
       url: restPath,
       contentType: 'application/json',
        headers: {
@@ -101,12 +146,37 @@ $('document').ready(function() {
             dataLen = JSON.stringify(data.data.categories.length);
             break;
         }
+        console.log('Inside Like IFFFFFFFFFF 111111111111111');
+        console.log(type);
+        if(type == "like") {
+          console.log('Inside Like IFFFFFFFFFF');
+          console.log(data);
+          console.log(data.message);
+          if(data.message == 'Success Liked') {
+            $.notify("You successfully Liked this Image", "info");
+          }
+           
+          
+
+        }
+
+           if(type == "delLike") {
+          console.log('Inside delLike IFFFFFFFFFF');
+          console.log(data);
+          console.log(data.message);
+          if(data.message == 'Success Cancel Like') {
+            $.notify("You successfully Cancel Like on this Image", "info");
+          }
+
+        }
                     
         var i;
         for (i = 0; i < dataLen; i++) {
           if (type == "img") {
-            drawEleme(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id));
-            showImgOnPopup(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id));
+            console.log('WEWEWEWEWEWEWEWEWEWE');
+
+            drawEleme(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id), (JSON.stringify(data.data.pictures[i].hasOwnProperty('isLiked')) ? JSON.stringify(data.data.pictures[i].isLiked) : null), JSON.stringify(data.data.pictures[i].user.id), JSON.stringify(data.data.pictures[i].user.first_name).slice(1, -1), JSON.stringify(data.data.pictures[i].user.last_name).slice(1, -1), JSON.stringify(data.data.pictures[i].user.profile_pic).slice(1, -1), ((JSON.stringify(data.data.pictures[i].user.hasOwnProperty('isFollowed'))) ? JSON.stringify(data.data.pictures[i].user.isFollowed) : null));
+            showImgOnPopup(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id), (JSON.stringify(data.data.pictures[i].hasOwnProperty('isLiked')) ? JSON.stringify(data.data.pictures[i].isLiked) : null));
           } else if (type == "tag") {
             drawTagEleme(JSON.stringify(data.data.tags[i].name).slice(1, -1), JSON.stringify(data.data.tags[i].id));
           } else if (type == "cat") {
@@ -126,26 +196,78 @@ $('document').ready(function() {
   }
   /* form submit */
   /**/
-  function drawEleme(src, id) {
+  function drawEleme(src, id, isLike, imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, imgAuthorIsFollow) {
     // Div Creation      
     var mainDiv = document.createElement("div");
     mainDiv.setAttribute('class', 'col-lg-4 col-md-6 col-sm-12');
     //mainDiv.setAttribute('id', id);
     // Trigger the modal with a img
-    mainDiv.setAttribute('data-toggle', 'modal');
-    mainDiv.setAttribute('data-target', '#myModal');
+    
 
     
 
     var imgBoxDiv = document.createElement("div");
     imgBoxDiv.setAttribute('class', 'imgBox');
     mainDiv.appendChild(imgBoxDiv);
+if (localStorage.hasOwnProperty('userimg')) {
     var heartDiv = document.createElement("div");
+       heartDiv.setAttribute('id', 'heart' + id);
+    heartDiv.setAttribute('imgData', id);
+    heartDiv.setAttribute('isLike', isLike);
     heartDiv.setAttribute('class', 'heart');
     var heartEleme = document.createElement("i");
     heartEleme.setAttribute('class', 'fas fa-heart');
+
     imgBoxDiv.appendChild(heartDiv);
     heartDiv.appendChild(heartEleme);
+/*
+        if(manageLike(id)) {
+          console.log('Inside IFFFFFFF WHRN CREATE');
+      heartDiv.setAttribute("style", "background-color:#fff; color:#ac9999;");
+      }
+        else {
+           console.log('Inside ELSE IFFFFFFF WHRN CREATE');
+                          heartDiv.setAttribute("style", "background-color:green; color:#fff;");
+        }*/
+console.log("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
+console.log(isLike);
+if(!isEmptyStr(isLike)) {
+
+console.log('!isEmptyStr(isLike)');
+if(isLike == 'true')
+{
+  console.log('Inside IFFFFFFF true');
+heartDiv.setAttribute("style", "background-color:#FF6565; color:#fff;");
+}
+
+if(isLike == 'false')
+{
+  console.log('Inside IFFFFFFF false');
+heartDiv.setAttribute("style", "background-color:#fff; color:#ac9999;");
+}
+
+}
+
+        heartDiv.onclick = function() {
+       //alert($(this).attr("imgData"));
+       //alert($(this).attr("isLike"));
+
+
+       manageLike($(this).attr("id"), $(this).attr("imgData"),  $(this).attr("isLike"))
+     
+
+      console.log('ddddddddetfrrrrrrrrrrrrrDDDDDDDDDDDDDD');
+      /*
+      if(manageLike($(this).attr("imgData"))) {
+        $(this).css("background-color", "#FF6565");
+      $(this).css("color", "#fff");
+      }
+        else {
+       $(this).css("background-color", "#fff");
+       $(this).css("color", "#ac9999");
+        }*/
+    };
+     }
     var plusDiv = document.createElement("div");
     plusDiv.setAttribute('class', 'plus');
     plusDiv.innerHTML = "+";
@@ -158,19 +280,66 @@ $('document').ready(function() {
       imgBoxDiv.appendChild(userImgDiv);
       userImgDiv.appendChild(userImgEleme);
     }
+
     var basicImgDiv = document.createElement("div");
     basicImgDiv.setAttribute('class', 'basicImg');
     var basicImgEleme = document.createElement("img");
     basicImgEleme.setAttribute('class', "img-fluid");
     basicImgEleme.setAttribute('src', src);
     basicImgEleme.setAttribute('id', id);
+    
+    basicImgEleme.setAttribute('imgAuthorId', imgAuthorId);
+    basicImgEleme.setAttribute('imgAuthorFname', imgAuthorFname);
+    basicImgEleme.setAttribute('imgAuthorLname', imgAuthorLname);
+    basicImgEleme.setAttribute('imgAuthor', imgAuthor);
+
+  if(!isEmptyStr(isLike)) {
+     basicImgEleme.setAttribute('imgIsLike', isLike);
+    }
+
+    if(!isEmptyStr(imgAuthorIsFollow)) {
+     basicImgEleme.setAttribute('imgAuthorIsFollow', imgAuthorIsFollow);
+    }
+    
+
+    basicImgEleme.setAttribute('data-toggle', 'modal');
+    basicImgEleme.setAttribute('data-target', '#myModal');
        basicImgEleme.onclick = function() {
-      //alert($(this).attr("src"));
+      //alert($(this).attr("id"));
+      iniPopupImg($(this).attr("id"));
+      dataOnPopup($(this).attr("imgAuthorId"), $(this).attr("imgAuthorFname"), $(this).attr("imgAuthorLname"), $(this).attr("imgAuthor"), $(this).attr("imgAuthorIsFollow"), $(this).attr("imgIsLike"), $(this).attr("id"));
     };
     imgBoxDiv.appendChild(basicImgDiv);
     basicImgDiv.appendChild(basicImgEleme);
+
     document.getElementById("galleryImgs").appendChild(mainDiv);
   }
+
+
+
+function manageLike(blockid, imgId, isLikeFlg) {
+
+
+if(isLikeFlg == 'true') {
+//$('#' + blockid).setAttribute("style", "background-color:#fff; color:#ac9999;");
+$('#' + blockid).css({"background-color": "#fff", "color": "#ac9999"});
+$('#' + blockid).attr('isLike', 'false');
+fireReq("like?image_id=" + imgId , "delLike"); 
+
+
+}
+
+
+if(isLikeFlg == 'false') {
+  //$('#' + blockid).setAttribute("style", "background-color:#FF6565; color:#fff;");
+  $('#' + blockid).css({"background-color": "#FF6565", "color": "#fff"});
+  $('#' + blockid).attr('isLike', 'true');
+  fireReq("like?image_id=" + imgId , "like");
+}
+
+//fireReq("like?image_id=" + imgId , "like");
+//return fireReq("like?image_id=" + imgId , "like");
+}
 
   function drawTagEleme(val, id) {
     var tagEleme = document.createElement("a");
@@ -265,22 +434,87 @@ function clearRedPoint() {
 
 
 
-function showImgOnPopup(src, id) {    
+
+
+function showImgOnPopup(src, id, isLike) {   
+
+console.log('User Daaaaatttttttttttttta on popup'); 
+
+
     var divImg = document.createElement("div");
     divImg.setAttribute('class', 'carousel-item');
+    divImg.setAttribute('id', id);
     var divImgEleme = document.createElement("img");
     divImgEleme.setAttribute('class', "d-block w-100 popupimg");
     divImgEleme.setAttribute('src', src);
-    divImgEleme.setAttribute('id', id);
     divImg.appendChild(divImgEleme);
     document.getElementById("carousel_id").appendChild(divImg);
-    iniPopupImg();
+    
 } 
 
-function iniPopupImg() {
-
-    $('#carousel_id div').eq(0).addClass('active')
+function iniPopupImg(id) {
+  console.log('Inside Ini POPUP IMAGE')
+  console.log(id)
+  clearActiveImg();
+    $('#carousel_id #' + id).eq(0).addClass('active')
 }
+
+
+
+function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, imgAuthorIsFollow, isLike, imgId) {
+
+ // userData = JSON.stringify(userData);
+
+  console.log('Inside Ini POPUP IMAGE')
+  console.log(imgAuthorId);
+  console.log(imgAuthorFname);
+  console.log(imgAuthorLname);
+    console.log(imgAuthor);
+      console.log(imgAuthorIsFollow);
+
+
+    $('#imgAuthor').attr('src', imgAuthor);
+    $('#imgAuthorName').text(imgAuthorFname + ' ' + imgAuthorLname);
+
+    if(!isEmptyStr(imgAuthorIsFollow)) {
+
+      $('#authotFollowId').attr('isFollow', imgAuthorIsFollow);
+      $('#authotFollowId').attr('currentAuthorId', imgAuthorId);
+
+     if(imgAuthorIsFollow == 'true') {
+      $('#authotFollowId').text('Unfollow');
+     }
+
+       if(imgAuthorIsFollow == 'false') {
+      $('#authotFollowId').text('Follow');
+     }
+
+    }
+
+
+    if(!isEmptyStr(isLike)) {
+
+      $('#navLinkLike').attr('isLiked', isLike);
+       $('#navLinkLike').attr('currentImgId', imgId);
+
+     if(isLike == 'true') {
+      //$('#navLinkLike i').css("background-color": "#FF6565");  
+      $("#navLinkLike i").css("color", "#FF6565");
+
+     }
+
+       if(isLike == 'false') {
+      $("#navLinkLike i").css("color", "#000");
+     }
+
+    }
+
+
+}
+
+
+
+
 
 function checkAuthenticat(data) {
 console.log('Inside checkAuthenticat');
@@ -301,3 +535,17 @@ console.log();
     $('#userimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
 
 })();
+
+
+
+
+function clearActiveImg() {
+    for (i = 0; i < $("#carousel_id *").length + 1; i++) {
+      if ($("#carousel_id div").eq(i).hasClass('active')) {
+        $("#carousel_id div").eq(i).removeClass('active');
+      }
+    }  
+};
+
+
+

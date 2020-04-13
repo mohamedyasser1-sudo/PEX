@@ -71,6 +71,10 @@ $('document').ready(function() {
                 console.log("success");
                 console.log(data);
                 localStorage.setItem('userToken', JSON.stringify(data.data.token));
+                localStorage.setItem('userimg', JSON.stringify(data.data.user.profile_pic));
+                localStorage.setItem('fname', JSON.stringify(data.data.user.first_name));
+                localStorage.setItem('lname', JSON.stringify(data.data.user.last_name));
+                localStorage.setItem('userId', JSON.stringify(data.data.user.id));
                 $.notify("Congrats, Now your are a member", "success");
                 setTimeout(function() {
                     window.location = "./profile.html";

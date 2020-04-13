@@ -60,6 +60,7 @@ $('document').ready(function() {
                 localStorage.setItem('userimg', JSON.stringify(data.data.user.profile_pic));
                 localStorage.setItem('fname', JSON.stringify(data.data.user.first_name));
                 localStorage.setItem('lname', JSON.stringify(data.data.user.last_name));
+                localStorage.setItem('userId', JSON.stringify(data.data.user.id));
                 $('#alert-msg .msgConrent').html('');
                 $("#alert-msg").removeClass("display-none");
                 $("#alert-msg").addClass("display-block");

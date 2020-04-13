@@ -833,12 +833,14 @@
   position: absolute;
     bottom: 10px;
     right: 27px;
-    background-color: #FF6565;
+    /*background-color: #FF6565;*/
+    /*background-color: #fff;*/
     width: 27px;
     height: 27px;
     line-height: 27px;
     border-radius: 50%;
-    color: #fff;
+    /*color: #fff;*/
+    /*color: #ac9999;*/
     text-align: center;
     font-size: 0.8rem;
     cursor: pointer;

@@ -10,17 +10,19 @@ $('document').ready(function() {
     });
     var navItemEleme = document.getElementById('myPhoto');
     navItemEleme.click();
-    //fireReq("top_liked", "img");
+    console.log('Inside First blocccccckkkkkkkkk');
+    console.log(localStorage.getItem('userId').slice(1,-1));
+    fireReq("images?user_id=" + localStorage.getItem('userId'), "img");
   })();
 
-    (function getMyPhoto() {
+    /*(function getMyPhoto() {
     $('#followers').click(function() {
       $(this).addClass('active');
     });
     var navItemEleme = document.getElementById('followers');
     navItemEleme.click();
     fireReq("followers", "followers");
-  })();
+  })();*/
 
 
   // Start Change Images 
@@ -30,7 +32,7 @@ $('document').ready(function() {
     clearActive();
     $('#' + elmId).addClass('active');
     if (elmId == "myPhoto") {
-      //fireReq("top_liked", "img");
+      fireReq("images?user_id=" + localStorage.getItem('userId'), "img");
     }
     if (elmId == "followers") {
       fireReq("followers", "followers");
@@ -79,7 +81,7 @@ $('document').ready(function() {
         for (i = 0; i < dataLen; i++) {
           if (type == "img") {
             drawImgEleme(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id));
-      
+            showImgOnPopup(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id));
           } else if (type == "followers") {
             //console.log("Inside Follwers");
             //console.log(JSON.stringify(data.data.followers[i]));
@@ -102,7 +104,7 @@ $('document').ready(function() {
   /* form submit */
   /**/
 
-   function drawImgEleme(src, id) {
+  function drawImgEleme(src, id) {
     // Div Creation      
     var mainDiv = document.createElement("div");
     mainDiv.setAttribute('class', 'col-lg-4 col-md-6 col-sm-12');
@@ -116,12 +118,14 @@ $('document').ready(function() {
     var imgBoxDiv = document.createElement("div");
     imgBoxDiv.setAttribute('class', 'imgBox');
     mainDiv.appendChild(imgBoxDiv);
+if (localStorage.hasOwnProperty('userimg')) {
     var heartDiv = document.createElement("div");
-    heartDiv.setAttribute('class', 'heart');
+    heartDiv.setAttribute('class', 'heart anonymousHiddenElement');
     var heartEleme = document.createElement("i");
     heartEleme.setAttribute('class', 'fas fa-heart');
     imgBoxDiv.appendChild(heartDiv);
     heartDiv.appendChild(heartEleme);
+     }
     var plusDiv = document.createElement("div");
     plusDiv.setAttribute('class', 'plus');
     plusDiv.innerHTML = "+";
@@ -134,6 +138,7 @@ $('document').ready(function() {
       imgBoxDiv.appendChild(userImgDiv);
       userImgDiv.appendChild(userImgEleme);
     }
+
     var basicImgDiv = document.createElement("div");
     basicImgDiv.setAttribute('class', 'basicImg');
     var basicImgEleme = document.createElement("img");
@@ -141,11 +146,13 @@ $('document').ready(function() {
     basicImgEleme.setAttribute('src', src);
     basicImgEleme.setAttribute('id', id);
        basicImgEleme.onclick = function() {
-      //alert($(this).attr("src"));
+      alert($(this).attr("id"));
+      iniPopupImg($(this).attr("id"));
     };
     imgBoxDiv.appendChild(basicImgDiv);
     basicImgDiv.appendChild(basicImgEleme);
-    document.getElementById("galleryImgs").appendChild(mainDiv);
+
+    document.getElementById("myBox").appendChild(mainDiv);
   }
 
 
@@ -197,7 +204,23 @@ function clearActive() {
 
 
 
+function showImgOnPopup(src, id) {    
+    var divImg = document.createElement("div");
+    divImg.setAttribute('class', 'carousel-item');
+    divImg.setAttribute('id', id);
+    var divImgEleme = document.createElement("img");
+    divImgEleme.setAttribute('class', "d-block w-100 popupimg");
+    divImgEleme.setAttribute('src', src);
+    divImg.appendChild(divImgEleme);
+    document.getElementById("carousel_id").appendChild(divImg);
+    
+} 
 
+function iniPopupImg(id) {
+  console.log('Inside Ini POPUP IMAGE')
+  console.log(id)
+    $('#carousel_id #' + id).eq(0).addClass('active')
+}
 
 
 
