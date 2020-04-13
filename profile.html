@@ -145,7 +145,6 @@
 
 <!-- Start PopUp Images-->
 
-
 <div class="container">
  
 
@@ -172,18 +171,19 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link user" href="#">
-                                <img src="images/face.jpg" alt="">
-                                <span>Jonathan Walker</span>
+                                <img src="" alt="" id="imgAuthor">
+                                <span id="imgAuthorName"></span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Follow</a>
+                         <li class="nav-item" style="display: none">
+                            <a class="nav-link" href="#" id="authotFollowId"></a>
                         </li>
+
                     </ul>
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#" id="navLinkLike">
                                 <i class="fas fa-heart"></i>
                             </a>
                         </li>
@@ -205,9 +205,12 @@
                         <div id="showImage" class="carousel slide carousel-fade" data-ride="carousel">
                             <div class="carousel-inner" id="carousel_id">
                                
-                           
+                           <div class="divImg carousel-item" id="">
+                            <img class="d-block w-100 popupimg" src="" id="imgPopUP">
+                          </div>
                              
                             </div>
+<!--
                             <a class="carousel-control-prev" href="#showImage" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -216,6 +219,7 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+                        -->
                         </div>
                     </div>
                 </div>

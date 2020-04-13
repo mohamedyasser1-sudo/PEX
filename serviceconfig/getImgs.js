@@ -72,13 +72,17 @@ $('document').ready(function() {
 
 $("#navLinkLike").click(function(){
   
-  var isImgLicked = $(this).attr("isLiked")
+  var isImgLicked = $(this).attr("isLiked");
   var imgId = $(this).attr("currentImgId")
   
   if(isImgLicked == 'true') {
     console.log('Inside True');
 $("#navLinkLike i").css("color", "#000");
 $("#navLinkLike").attr('isLiked', 'false');
+$('#' + imgId).attr('imgIsLike', 'false');
+$('#heart' + imgId).css({"background-color": "#fff", "color": "#ac9999"});
+
+
 fireReq("like?image_id=" + imgId , "delLike"); 
 
 }
@@ -87,12 +91,44 @@ fireReq("like?image_id=" + imgId , "delLike");
     console.log('Inside False');
 $("#navLinkLike i").css("color", "#FF6565");
 $("#navLinkLike").attr('isLiked', 'true');
+$('#' + imgId).attr('imgIsLike', 'true');
+$('#heart' + imgId).css({"background-color": "#FF6565", "color": "#fff"});
 fireReq("like?image_id=" + imgId , "like"); 
 
 }
 });
 
 
+
+$("#authotFollowId").click(function(){
+  var isUserFollowed = $(this).attr("isFollow");
+  var userId = $(this).attr("currentAuthorId");
+   var curreImgId = $(this).attr("curreImgId");
+     console.log("isUserFollowed");
+  console.log(isUserFollowed);
+  if(isUserFollowed == 'true') {
+    console.log('Inside True');
+$('#authotFollowId').attr('isFollow', 'false');
+$('#authotFollowId').css({"background-color": "#F8F2F2", "color": "#000"});
+$('#authotFollowId').text("Follow");
+$('#' + curreImgId).attr('imgAuthorIsFollow', 'false');
+
+fireReq("follow?user_id=" + userId , "delFollow"); 
+
+}
+
+  if(isUserFollowed == 'false') {
+    console.log('Inside True');
+$('#authotFollowId').attr('isFollow', 'true');
+
+$('#authotFollowId').css({"background-color": "#FF6565", "color": "#fff"});
+$('#authotFollowId').text("Unfollow");
+$('#' + curreImgId).attr('imgAuthorIsFollow', 'true');
+
+fireReq("follow?user_id=" + userId , "follow"); 
+
+}
+});
 
   /* form submit */
   function fireReq(serviceUrl, type) {
@@ -108,10 +144,10 @@ fireReq("like?image_id=" + imgId , "like");
     console.log(serviceUrl.replace(/\s+/g, ''));
     var methodType = '';
 
-    if(type == "like") {
+    if(type == "like" || type == "follow") {
          methodType = 'POST';
     } 
-else if (type == "delLike") {
+else if (type == "delLike" || type == "delFollow") {
          methodType = 'DELETE';
     }
     else {
@@ -169,6 +205,30 @@ else if (type == "delLike") {
           }
 
         }
+
+
+                if(type == "follow") {
+          console.log('Inside Like IFFFFFFFFFF');
+          console.log(data);
+          console.log(data.message);
+          if(data.message == 'Success Followed') {
+            $.notify("You successfully Follow this user", "info");
+          }
+           
+          
+
+        }
+
+           if(type == "delFollow") {
+          console.log('Inside delLike IFFFFFFFFFF');
+          console.log(data);
+          console.log(data.message);
+          if(data.message == 'Success Cancel follow') {
+            $.notify("You successfully Cancel following this user", "info");
+          }
+
+        }
+
                     
         var i;
         for (i = 0; i < dataLen; i++) {
@@ -176,7 +236,7 @@ else if (type == "delLike") {
             console.log('WEWEWEWEWEWEWEWEWEWE');
 
             drawEleme(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id), (JSON.stringify(data.data.pictures[i].hasOwnProperty('isLiked')) ? JSON.stringify(data.data.pictures[i].isLiked) : null), JSON.stringify(data.data.pictures[i].user.id), JSON.stringify(data.data.pictures[i].user.first_name).slice(1, -1), JSON.stringify(data.data.pictures[i].user.last_name).slice(1, -1), JSON.stringify(data.data.pictures[i].user.profile_pic).slice(1, -1), ((JSON.stringify(data.data.pictures[i].user.hasOwnProperty('isFollowed'))) ? JSON.stringify(data.data.pictures[i].user.isFollowed) : null));
-            showImgOnPopup(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id), (JSON.stringify(data.data.pictures[i].hasOwnProperty('isLiked')) ? JSON.stringify(data.data.pictures[i].isLiked) : null));
+            //showImgOnPopup(JSON.stringify(data.data.pictures[i].image).slice(1, -1), JSON.stringify(data.data.pictures[i].id), (JSON.stringify(data.data.pictures[i].hasOwnProperty('isLiked')) ? JSON.stringify(data.data.pictures[i].isLiked) : null));
           } else if (type == "tag") {
             drawTagEleme(JSON.stringify(data.data.tags[i].name).slice(1, -1), JSON.stringify(data.data.tags[i].id));
           } else if (type == "cat") {
@@ -307,7 +367,8 @@ heartDiv.setAttribute("style", "background-color:#fff; color:#ac9999;");
        basicImgEleme.onclick = function() {
       //alert($(this).attr("id"));
       iniPopupImg($(this).attr("id"));
-      dataOnPopup($(this).attr("imgAuthorId"), $(this).attr("imgAuthorFname"), $(this).attr("imgAuthorLname"), $(this).attr("imgAuthor"), $(this).attr("imgAuthorIsFollow"), $(this).attr("imgIsLike"), $(this).attr("id"));
+      dataOnPopup($(this).attr("imgAuthorId"), $(this).attr("imgAuthorFname"), $(this).attr("imgAuthorLname"), $(this).attr("imgAuthor"), $(this).attr("imgAuthorIsFollow"), $(this).attr("imgIsLike"), $(this).attr("id"), $(this).attr("src"));
+      //showImgOnPopup($(this).attr("src"), $(this).attr("id"), $(this).attr("imgIsLike"));
     };
     imgBoxDiv.appendChild(basicImgDiv);
     basicImgDiv.appendChild(basicImgEleme);
@@ -324,6 +385,7 @@ if(isLikeFlg == 'true') {
 //$('#' + blockid).setAttribute("style", "background-color:#fff; color:#ac9999;");
 $('#' + blockid).css({"background-color": "#fff", "color": "#ac9999"});
 $('#' + blockid).attr('isLike', 'false');
+$('#' + imgId).attr('imgIsLike', 'false');
 fireReq("like?image_id=" + imgId , "delLike"); 
 
 
@@ -334,6 +396,7 @@ if(isLikeFlg == 'false') {
   //$('#' + blockid).setAttribute("style", "background-color:#FF6565; color:#fff;");
   $('#' + blockid).css({"background-color": "#FF6565", "color": "#fff"});
   $('#' + blockid).attr('isLike', 'true');
+  $('#' + imgId).attr('imgIsLike', 'true');
   fireReq("like?image_id=" + imgId , "like");
 }
 
@@ -461,7 +524,7 @@ function iniPopupImg(id) {
 
 
 
-function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, imgAuthorIsFollow, isLike, imgId) {
+function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, imgAuthorIsFollow, isLike, imgId, imgSrc) {
 
  // userData = JSON.stringify(userData);
 
@@ -471,21 +534,30 @@ function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, img
   console.log(imgAuthorLname);
     console.log(imgAuthor);
       console.log(imgAuthorIsFollow);
-
+      console.log('QWERTY SSSSRR')
+ console.log(imgSrc);
 
     $('#imgAuthor').attr('src', imgAuthor);
     $('#imgAuthorName').text(imgAuthorFname + ' ' + imgAuthorLname);
+
+    $('.divImg').addClass('active');
+    $('.divImg').attr('id', imgId);
+
+     $('#imgPopUP').attr('src', imgSrc);
 
     if(!isEmptyStr(imgAuthorIsFollow)) {
 
       $('#authotFollowId').attr('isFollow', imgAuthorIsFollow);
       $('#authotFollowId').attr('currentAuthorId', imgAuthorId);
+      $('#authotFollowId').attr('curreImgId', imgId);
 
      if(imgAuthorIsFollow == 'true') {
       $('#authotFollowId').text('Unfollow');
+      $('#authotFollowId').css({"background-color": "rgb(255, 101, 101)", "color": "#fff"});
      }
 
        if(imgAuthorIsFollow == 'false') {
+         $('#authotFollowId').css({"background-color": "rgb(248, 242, 242)", "color": "#000"});
       $('#authotFollowId').text('Follow');
      }
 
