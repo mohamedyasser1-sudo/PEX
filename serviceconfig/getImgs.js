@@ -595,7 +595,8 @@ function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, img
 function checkAuthenticat(data) {
 console.log('Inside checkAuthenticat');
 console.log(data);
-console.log();
+if(!isEmptyStr(data)) {
+console.log((data.hasOwnProperty('errors')));
  if(data.toString() == '{"errors":["Your Are Not Authenticated"]}')  {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userimg');
@@ -604,11 +605,17 @@ console.log();
                     window.location = "./index.html";
                 }, 1000);
  } 
-}
+}}
 
 
 (function getUserImg() {
-    $('#userimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
+
+  if(localStorage.hasOwnProperty('userimg')){
+       $('#userimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
+  }
+
+
+    
 
 })();
 

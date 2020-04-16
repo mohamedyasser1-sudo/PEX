@@ -52,6 +52,10 @@ $('document').ready(function() {
     $.notify("You logout, Looking forward to your return", "success");
     localStorage.removeItem('userToken');
     localStorage.removeItem('userimg');
+    localStorage.removeItem('lname');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('fname');
+    localStorage.removeItem('tag_id');
     window.location = "./index.html";
     //submitLogout();
   });

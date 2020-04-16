@@ -83,8 +83,10 @@ $('document').ready(function() {
                 $("#alert-msg").addClass("display-block");
                 $(".alert").removeClass("alert-success");
                 $(".alert").addClass("alert-danger");
-                $('#alert-msg .msgConrent').append("<strong>This is a danger!</strong> " + JSON.stringify(XMLHttpRequest.responseJSON.errors));
+                if(XMLHttpRequest.hasOwnProperty('responseJSON')){
+                    $('#alert-msg .msgConrent').append("<strong>This is a danger!</strong> " + JSON.stringify(XMLHttpRequest.responseJSON.errors));
                 $.notify("BOOM!, " + JSON.stringify(XMLHttpRequest.responseJSON.errors), "error");
+                }   
                 setTimeout(function() {
                     $("#alert-msg").removeClass("display-block");
                     $("#alert-msg").addClass("display-none");
@@ -96,3 +98,8 @@ $('document').ready(function() {
     }
     /* form submit */
 });
+
+
+function isEmptyStr(property) {
+      return (property === null || property === "" || typeof property === "undefined");
+   }
