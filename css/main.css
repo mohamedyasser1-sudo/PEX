@@ -1,5 +1,7 @@
 .navbar.sticky-top .navbar-brand i {
-  font-size: 2rem; }
+  font-size: 2rem; 
+color: rgb(5, 160, 129);
+}
 
 .navbar.sticky-top .navbar-nav {
   align-items: center; }
@@ -34,7 +36,7 @@
       font-weight: 700;
       padding-left: 1rem;
       padding-right: 1rem;
-      color: #000; }
+      color: #fff; }
       .navbar.sticky-top .navbar-nav .nav-item .nav-link.btn {
         background-color: #02950C !important; }
       .navbar.sticky-top .navbar-nav .nav-item .nav-link i {
@@ -70,7 +72,7 @@
       text-align: center; }
 
 .banner {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/cat.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/cat.jpg");
   height: 70vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -587,13 +589,22 @@
     .search-tags .tags .btn {
       margin-right: 0.5rem;
       
-      background-color: #929292;
+      background-color: rgb(5, 160, 129);
       color: #fff !important;
-      border-color: #929292 !important;
+      border-color: rgb(54, 57, 56) !important;
       font-size: 1rem;
     margin: 5px;
             min-width: 100px;
+            transition: all linear 0.1s;
        }
+
+
+          .search-tags .tags .btn:hover {
+opacity: 0.8;
+   margin-top: -6px;
+       }
+
+
       .search-tags .tags .btn:active, .search-tags .tags .btn:focus, .search-tags .tags .btn:not(:disabled):not(.disabled):active:focus {
         box-shadow: none; }
 
@@ -948,6 +959,9 @@ a:hover {
        
 } 
 
-
+.downloadBtn {
+  cursor: pointer;
+  border: none;
+}
 
 

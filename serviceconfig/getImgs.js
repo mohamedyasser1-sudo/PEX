@@ -540,6 +540,10 @@ function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, img
     $('#imgAuthor').attr('src', imgAuthor);
     $('#imgAuthorName').text(imgAuthorFname + ' ' + imgAuthorLname);
 
+     $('#download').attr('href', imgSrc);
+
+     $('#downloadBtnId').attr('imgSrc', imgSrc);
+
     $('.divImg').addClass('active');
     $('.divImg').attr('id', imgId);
 
@@ -621,3 +625,13 @@ function clearActiveImg() {
 
 
 
+$("#downloadBtnId").click(function(){
+  var imgSource = $(this).attr("imgSrc");
+  var link = document.createElement('a');
+link.href = imgSource;
+link.target = '_blank';
+link.download = 'Download.jpg';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+});
