@@ -1,6 +1,6 @@
 console.log("Inside Join JS");
 
-var restPath = "http://ma3arf.com/aphrodite/public/api/register";
+//var restPath = "http://ma3arf.com/aphrodite/public/api/register";
 $('document').ready(function() {
     /* validation */
     $("#joinForm").validate({
@@ -40,55 +40,65 @@ $('document').ready(function() {
                 equalTo: "Password Mismatch! Retype"
             }
         },
-        submitHandler: submitJoinForm
+     submitHandler: submitJoinForm
     });
     /* validation */
-    /* form submit */
-    function submitJoinForm() {
-        console.log("Inside Submit");
-        var data = $("#joinForm").serialize();
-        /*
-        var mailVa = $('#email-address').val();
-        var passVal = $('#password').val();
-        var filePath = $('#profile_pic').val();
-        console.log("Data");
-        console.log(data);
-        console.log(filePath);
-        //console.log(data + '&profile_pic=' + filePath);
-        */
-        if (!localStorage.hasOwnProperty('userToken')) {
+
+
+
+
+    //$(document).ready(function () {
+  // Attach a submit handler to the form
+  //$("form").submit(function (event) {
+    // Stop form from submitting normally
+        function submitJoinForm() {
+    //event.preventDefault();
+
+    // Get Form Data Values
+    var self = this;
+       var formDataaa = $("#joinForm")[0];
+      formDataaadddd = new FormData(formDataaa);
+      var url = "http://ma3arf.com/aphrodite/public/api/register";
+       
+    // Send the data using post
+
+      if (!localStorage.hasOwnProperty('userToken')) {
             $.LoadingOverlay("show");
-        $.ajax({
-            type: 'POST',
-            url: restPath,
-            data: data,
-            beforeSend: function() {
-                $("#error").fadeOut();
-                $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   sending ...');
-            },
-            success: function(data) {
-                $.LoadingOverlay("hide");
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: formDataaadddd,
+      contentType : false,
+      processData: false,
+      success: (response, textStatus, jQxhr) => {
+        $(self)[0].reset();
+        
+         $.LoadingOverlay("hide");
                 console.log("success");
-                console.log(data);
-                localStorage.setItem('userToken', JSON.stringify(data.data.token));
-                localStorage.setItem('userimg', JSON.stringify(data.data.user.profile_pic));
-                localStorage.setItem('fname', JSON.stringify(data.data.user.first_name));
-                localStorage.setItem('lname', JSON.stringify(data.data.user.last_name));
-                localStorage.setItem('userId', JSON.stringify(data.data.user.id));
+                console.log(response);
+                localStorage.setItem('userToken', JSON.stringify(response.data.token));
+                localStorage.setItem('userimg', JSON.stringify(response.data.user.profile_pic));
+                localStorage.setItem('fname', JSON.stringify(response.data.user.first_name));
+                localStorage.setItem('lname', JSON.stringify(response.data.user.last_name));
+                localStorage.setItem('userId', JSON.stringify(response.data.user.id));
                 $.notify("Congrats, Now your are a member", "success");
                 setTimeout(function() {
                     window.location = "./profile.html";
                 }, 2000);
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                $.LoadingOverlay("hide");
+      },
+      error: (jQxhr, textStatus, errorThrown) => {
+          $.LoadingOverlay("hide");
                 console.log("Status: " + textStatus);
                 console.log("Error: " + errorThrown);
                 console.log(JSON.stringify(XMLHttpRequest));
-            }
-        });
-    }
-        return false;
-    }
-    /* form submit */
+      }
+      
+    });
+}
+  }
+  //);
+//});
+
+
+
 });

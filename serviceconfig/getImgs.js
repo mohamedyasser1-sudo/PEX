@@ -336,7 +336,7 @@ heartDiv.setAttribute("style", "background-color:#fff; color:#ac9999;");
       var userImgDiv = document.createElement("div");
       userImgDiv.setAttribute('class', 'user-image');
       var userImgEleme = document.createElement("img");
-      userImgEleme.setAttribute('src', localStorage.getItem('userimg').slice(1, -1));
+      userImgEleme.setAttribute('src', imgAuthor);
       imgBoxDiv.appendChild(userImgDiv);
       userImgDiv.appendChild(userImgEleme);
     }
