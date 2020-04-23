@@ -155,3 +155,8 @@ body {
   position: relative;
     top: 232px;
 }
+
+
+#uploadImgForm {
+      margin-top: 30px;
+}

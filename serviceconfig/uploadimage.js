@@ -153,3 +153,17 @@ var catsLen = JSON.stringify(data.data.categories.length);
 
 
 });
+
+
+
+(function getUserImg() {
+
+  if(localStorage.hasOwnProperty('userimg')){
+       $('#userimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
+       $('.userLoggedName').text(localStorage.getItem('fname').slice(1, -1) + ' ' + localStorage.getItem('lname').slice(1, -1));
+  }
+
+
+    
+
+})();

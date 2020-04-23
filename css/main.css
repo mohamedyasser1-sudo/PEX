@@ -965,3 +965,32 @@ a:hover {
 }
 
 
+
+/*
+.bg-light {
+     background-color: rgb(35, 42, 52) !important;
+}
+
+
+.nav-link {
+  color: rgba(255, 249, 249, 0.9) !important;
+}
+.dropdown-menu {
+      background-color: #e8fffa !important;
+}
+
+*/
+
+#navbarNavDropdown {
+  float: right !important;
+}
+
+
+#proBody {
+      margin: 84px 0 0 0;
+}
+
+
+#mainNav {
+  margin-right: 170px;
+}

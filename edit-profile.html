@@ -19,80 +19,93 @@
 
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #fff">
-            <a class="navbar-brand" href="./index.html">
-                <i class="fas fa-camera"></i>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+               <nav  class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #232a34">
+        <a class="navbar-brand" href="./index.html">
+            <img src="images/ddd.jpg" width="40px" height="40px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ml-auto">
-                   <!-- <form class="form-inline my-2 my-lg-0">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ml-auto">
+                <!--<form class="form-inline my-2 my-lg-0">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="fas fa-search"></i>
                             </span>
-                            </div>
-                            <input class="form-control form-control-lg mr-sm-2" type="search" placeholder="Search free high-resolution photos" aria-label="Search">
-                            <div class="input-group-append">
+                        </div>
+                        <input class="form-control form-control-lg mr-sm-2" type="search" placeholder="Search free high-resolution photos" aria-label="Search">
+                        <div class="input-group-append">
                             <span class="input-group-text" id="basic-addon2">
                                 <button class="btn btn-primary btn-sm">Search</button>
                             </span>
-                            </div>
                         </div>
-                    </form>-->
+                    </div>
+                </form>-->
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Home</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
 
-                      <li class="nav-item anonymousHiddenElement">
-                        <a class="nav-link" href="./join.html">Join</a>
-                    </li>
+                 <li class="nav-item anonymousHiddenElement">
+                    <a class="nav-link" href="./join.html">Join</a>
+                </li>
 <!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Join
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Join
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>-->
 
-                    <li class="nav-item">
+                <!--<li class="nav-item">
                     <span class="file-input btn btn-primary btn-file">
                         <a href="upload.html"> upload a photo</a>
                     </span>
-                    </li>
-
-                    <li class="nav-item showenElement">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-bell"></i>
-                        </a>
-                    </li>
-
-                    <li class="nav-item showenElement">
-                        <a class="nav-link" href="#">
-                            <div class="avatar">
-                                <img src="./images/avatar.png" class="img-thumbnail img-fluid" alt="">
-                            </div>
-                        </a>
-                    </li>
+                    </li>-->
 
                      <li class="nav-item showenElement">
+                    <a class="nav-link" href="upload.html">Upload</a>
+                </li>
+
+                <!--<li class="nav-item showenElement">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </li>-->
+
+                <!--<li class="nav-item showenElement">
+                    <a class="nav-link" href="#">
+                        <div class="avatar">
+                            <img src="images/avatar.png" class="img-thumbnail img-fluid userimg" alt="">
+                        </div>
+                    </a>
+                </li>
+
+                 <li class="nav-item showenElement">
                         <a class="nav-link" href="#" id="logoutBtn">Logout</a>
-                    </li>
+                    </li>-->
+<li class="nav-item dropdown showenElement">
+        <a class="nav-link dropdown-toggle userLoggedName" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="./profile.html">Profile</a>
+          <a class="dropdown-item" href="./edit-profile.html">Setting</a>
+          <a class="dropdown-item" href="#" id="logoutBtn">Logout</a>
+        </div>
+      </li>
 
-
-                </ul>
-            </div>
-        </nav>
+            </ul>
+        </div>
+    </nav>
 
         <div class="edit-profile">
 
@@ -106,15 +119,19 @@
 
                             <div class="join">
 
-                                <div class="change-profile">
+                               
+
+                                <form method="POST" id="editForm">
+
+                                     <div class="change-profile">
                                     <h2 class="text-center">Edit Profile</h2>
                                     <div class="avatar">
                                         <img src="./images/avatar.png" class="img-thumbnail img-fluid" alt="" id="profile_pic">
+                                        <!--<input type="file" name="profile_pic" id="profile_pic" />-->
                                     </div>
-                                    <p>Change profile image</p>
+                                   <!-- <p>Change profile image</p>-->
                                 </div>
 
-                                <form method="POST" id="editForm">
                                     <div class="form-row">
                                         <div class="form-group col-sm-12 col-md-6">
                                             <label for="first-name">First Name</label>

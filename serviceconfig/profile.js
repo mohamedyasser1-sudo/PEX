@@ -532,6 +532,8 @@ console.log();
 
     $('.userimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
      $('#userName').html(localStorage.getItem('fname').slice(1, -1) + " " + localStorage.getItem('lname').slice(1, -1));
+$('.userLoggedName').text(localStorage.getItem('fname').slice(1, -1) + ' ' + localStorage.getItem('lname').slice(1, -1));
+
 })();
 
 
