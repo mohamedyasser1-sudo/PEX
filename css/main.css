@@ -882,6 +882,24 @@ opacity: 0.8;
        top: 10px;
     left: 22px;
 }
+
+
+.imgBox .remove-image{
+     position: absolute;
+    top: 10px;
+    text-align: center;
+    line-height: 32px;
+    right: 20px;
+    background: white;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.imgBox .remove-image:hover i{
+   color: red
+}
+
 .imgBox .basicImg {}
 
 
@@ -904,7 +922,7 @@ opacity: 0.8;
 
 
 @media (min-width: 576px) {
-.modal-dialog {
+.modal-dialog-cus {
           max-width: 100%;
               margin: 1.75rem 4rem;
    
@@ -993,4 +1011,38 @@ a:hover {
 
 #mainNav {
   margin-right: 170px;
+}
+
+
+
+
+[type="file"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+ 
+[type="file"] + label {
+ /* background-color: #000;*/
+  border-radius: 4rem;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 2rem 4rem;
+}
+  
+[type="file"]:focus + label,
+[type="file"] + label:hover {
+    /*background-color: #f15d22;*/
+    /*background-color: #232a34;*/
+    color: #98969a;
+}
+  
+[type="file"]:focus + label {
+  outline: 1px dotted #000;
 }

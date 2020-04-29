@@ -123,7 +123,7 @@ fireReq("follow?user_id=" + userId , "follow");
   if(type == "like" || type == "follow") {
          methodType = 'POST';
     } 
-else if (type == "delLike" || type == "delFollow") {
+else if (type == "delLike" || type == "delFollow" || type == "delImg") {
          methodType = 'DELETE';
     }
     else {
@@ -182,6 +182,17 @@ else if (type == "delLike" || type == "delFollow") {
         }
 
 
+           if(type == "delImg") {
+          console.log('Inside Delete Img IFFFF');
+          console.log(data);
+          console.log(data.message);
+          if(data.hasOwnProperty('message')) {
+            $.notify("You successfully delete this Image", "info");
+          }
+
+        }
+
+
         if(type == "follow") {
           console.log('Inside Like IFFFFFFFFFF');
           console.log(data);
@@ -235,6 +246,7 @@ else if (type == "delLike" || type == "delFollow") {
     // Div Creation      
     var mainDiv = document.createElement("div");
     mainDiv.setAttribute('class', 'col-lg-4 col-md-6 col-sm-12');
+    mainDiv.setAttribute('id', 'mainDiv' + id);
     //mainDiv.setAttribute('id', id);
     // Trigger the modal with a img
     
@@ -316,6 +328,27 @@ heartDiv.setAttribute("style", "background-color:#fff; color:#ac9999;");
       userImgDiv.appendChild(userImgEleme);
     }
 
+
+      var removeDiv = document.createElement("div");
+      removeDiv.setAttribute('class', 'remove-image');
+      removeDiv.setAttribute('imgIdtoDel', id);
+      removeDiv.setAttribute('data-toggle', 'modal');
+      removeDiv.setAttribute('data-target', '#exampleModalCenter');
+
+       removeDiv.onclick = function() {
+          //alert($(this).attr("imgIdtoDel"));
+          $('#deleteBtn').attr("imgDeleteId", $(this).attr("imgIdtoDel"));
+          
+        };
+
+      var removeEleme = document.createElement("i");
+      removeEleme.setAttribute('class', 'fa fa-trash');
+      removeEleme.setAttribute('aria-hidden', 'true');
+      removeDiv.appendChild(removeEleme);
+      imgBoxDiv.appendChild(removeDiv);
+
+
+
     var basicImgDiv = document.createElement("div");
     basicImgDiv.setAttribute('class', 'basicImg');
     var basicImgEleme = document.createElement("img");
@@ -380,6 +413,17 @@ if(isLikeFlg == 'false') {
 }
 
 
+$("#deleteBtn").click(function(){
+  //$(this).attr("imgIdtoDel")
+    console.log('IInside Delete msg Fun');
+    console.log($(this).attr("imgdeleteid"));
+    $('#exampleModalCenter').modal('hide');
+    $("#mainDiv" + $(this).attr("imgdeleteid")).remove();
+    console.log("#mainDiv" + $(this).attr("imgdeleteid"));
+   fireReq("delete_image?id=" + $(this).attr("imgdeleteid"), "delImg");
+});
+
+
 
   function drawEleme(src, id, fname, lname) {
     // Div Creation      
@@ -415,6 +459,11 @@ if(isLikeFlg == 'false') {
 function isEmptyStr(property) {
   return (property === null || property === "" || typeof property === "undefined");
 }
+
+
+
+
+
 
 
 function clearActive() {

@@ -1,9 +1,12 @@
-console.log("Inside Edit Profile JS");
+console.log("Inside Edit Profile QQQQQ JS");
 
 var restPathUpdate = "http://ma3arf.com/aphrodite/public/api/update_account";
 
 
-
+ console.log("SRC SRC SRC");
+ console.log(localStorage.getItem('userimg').slice(1, -1));
+ var imgSrccc = localStorage.getItem('userimg').slice(1, -1);
+ $('.iimg').attr('src', imgSrccc);
 
 $('document').ready(function() {
     /* validation */
@@ -28,10 +31,23 @@ $('document').ready(function() {
     /* validation */
     /* form submit */
     function submitEditProfileForm() {
+
+      console.log("Inside Edit Profile NEW NEW NEW");
+
+
         console.log("Inside Submit");
         var data = $("#editForm").serialize();
         console.log("Data");
         console.log(data);
+
+
+ // Get Form Data Values
+    var self = this;
+       var formDataaa = $("#editForm")[0];
+      formDataaadddd = new FormData(formDataaa);
+     // var url = "http://ma3arf.com/aphrodite/public/api/register";
+
+
         if(localStorage.hasOwnProperty('userToken')){
             console.log("Inside Submit to send");
             var userTokenVal = localStorage.getItem('userToken');
@@ -43,7 +59,9 @@ $('document').ready(function() {
             headers: {
                 'Authorization': 'Bearer ' + userTokenVal.slice(1,-1)
             },
-            data: data,
+              contentType : false,
+      processData: false,
+            data: formDataaadddd,
             beforeSend: function() {
                
             },
@@ -64,6 +82,8 @@ $('document').ready(function() {
                 localStorage.setItem('lname', JSON.stringify(data.data.user.last_name));
                  $('.userLoggedName').text('');
  $('.userLoggedName').text(localStorage.getItem('fname').slice(1, -1) + ' ' + localStorage.getItem('lname').slice(1, -1));
+ $('.iimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
+
                  /*
                 $.notify("Info updated success", "success");
 
@@ -103,3 +123,25 @@ $('document').ready(function() {
     
 
 })();
+
+
+
+
+
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.iimg').attr('src', e.target.result);
+      //$('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
