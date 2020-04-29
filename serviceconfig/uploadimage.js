@@ -73,8 +73,8 @@ $('document').ready(function() {
          $.notify("Congrats, your Image uploaded", "success");
 
          setTimeout(function() {
-                    window.location.reload();
-                }, 2000);
+                   window.location = "./profile.html";
+                }, 1000);
         
         //$(self).after('<img class="img-reponsive" src="'+ response.data.picture.image +'">');
       },
