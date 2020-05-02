@@ -437,7 +437,7 @@ if(isLikeFlg == 'false') {
       clearRedPoint();
       $("#newImgs").addClass('new');
       $("#galleryImgs").html("");
-      $("#carousel_id").html("");
+      //$("#carousel_id").html("");
       var urlWithWord = "images?word=" + $('#searchWordBtn').val();
       console.log(urlWithWord);
     }
@@ -490,7 +490,7 @@ function clearRedPoint() {
     if ($('.nav-item div').eq(i).hasClass('new')) {
       $('.nav-item div').eq(i).removeClass('new');
       $("#galleryImgs").html("");
-      $("#carousel_id").html("");
+      //$("#carousel_id").html("");
     }
   }
 }
