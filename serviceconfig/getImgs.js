@@ -643,3 +643,14 @@ document.body.appendChild(link);
 link.click();
 document.body.removeChild(link);
 });
+
+
+
+
+(function changeBg() {
+var imgSrc = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg', 'bg6.jpg', 'bg6.jpg', 'bg7.jpg', 'bg8.jpg']
+setInterval(function(){
+var imageUrl =  "./images/indexbgs/" + imgSrc[Math.floor(Math.random() * imgSrc.length)]; 
+$(".banner").css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(" + imageUrl + ")"); 
+}, 5000);
+})();
