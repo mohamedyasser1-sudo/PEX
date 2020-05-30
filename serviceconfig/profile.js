@@ -520,6 +520,9 @@ function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, img
     $('.divImg').addClass('active');
     $('.divImg').attr('id', imgId);
 
+     $('#downloadBtnId').attr('imgSrc', imgSrc);
+     $('#downloadBtnId').attr('idImgToDownload', imgId);
+
      $('#imgPopUP').attr('src', imgSrc);
 
     if(!isEmptyStr(imgAuthorIsFollow)) {
@@ -575,6 +578,20 @@ console.log();
                 }, 1000);
  } 
 }
+
+
+
+$("#downloadBtnId").click(function(){
+
+  var imgSource = "http://ma3arf.com/aphrodite/public/api/image/save/" + $(this).attr("idImgToDownload");
+  var link = document.createElement('a');
+link.href = imgSource;
+link.target = '_blank';
+//link.download = 'Download.jpg';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+});
 
 
 (function getUserImg() {

@@ -10,7 +10,9 @@ var serviceconfigScripts = {
 "getAllTags": "getAllTags",
 "getAllCats": "getAllCats",
 "getImgs": "getImgs",
-"profile": "profile"
+"profile": "profile",
+"forgetPassword": "forgetPassword",
+"restPassword": "restPassword"
 
 };
 
@@ -106,6 +108,12 @@ function LoadConfigScript() {
     break;
     case "profile.html":
     loadScript(serviceconfigScripts.profile, "config", function(){console.log("Complete load script");});
+    break;
+    case "forgot-password.html":
+    loadScript(serviceconfigScripts.forgetPassword, "config", function(){console.log("Complete load script");});
+    break;
+    case "rest-password.html":
+    loadScript(serviceconfigScripts.restPassword, "config", function(){console.log("Complete load script");});
     break;
 }
  

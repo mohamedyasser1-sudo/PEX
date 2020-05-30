@@ -130,6 +130,8 @@ fireReq("follow?user_id=" + userId , "follow");
 }
 });
 
+
+
   /* form submit */
   function fireReq(serviceUrl, type) {
     console.log("Inside Submit");
@@ -345,6 +347,8 @@ heartDiv.setAttribute("style", "background-color:#fff; color:#ac9999;");
     basicImgDiv.setAttribute('class', 'basicImg');
     var basicImgEleme = document.createElement("img");
     basicImgEleme.setAttribute('class', "img-fluid");
+     basicImgEleme.setAttribute('width', "100%");
+ 
     basicImgEleme.setAttribute('src', src);
     basicImgEleme.setAttribute('id', id);
     
@@ -543,6 +547,7 @@ function dataOnPopup(imgAuthorId, imgAuthorFname, imgAuthorLname, imgAuthor, img
      $('#download').attr('href', imgSrc);
 
      $('#downloadBtnId').attr('imgSrc', imgSrc);
+     $('#downloadBtnId').attr('idImgToDownload', imgId);
 
     $('.divImg').addClass('active');
     $('.divImg').attr('id', imgId);
@@ -634,11 +639,12 @@ function clearActiveImg() {
 
 
 $("#downloadBtnId").click(function(){
-  var imgSource = $(this).attr("imgSrc");
+
+  var imgSource = "http://ma3arf.com/aphrodite/public/api/image/save/" + $(this).attr("idImgToDownload");
   var link = document.createElement('a');
 link.href = imgSource;
 link.target = '_blank';
-link.download = 'Download.jpg';
+//link.download = 'Download.jpg';
 document.body.appendChild(link);
 link.click();
 document.body.removeChild(link);
@@ -654,3 +660,4 @@ var imageUrl =  "./images/indexbgs/" + imgSrc[Math.floor(Math.random() * imgSrc.
 $(".banner").css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(" + imageUrl + ")"); 
 }, 5000);
 })();
+
