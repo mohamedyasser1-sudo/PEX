@@ -70,6 +70,9 @@ $('document').ready(function() {
                 console.log(data);
                 $.notify("Your Password is Rest Successfully", "success");
                 resetFields();
+                    setTimeout(function() {
+                    window.location = "./index.html";
+                }, 1000);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 $.LoadingOverlay("hide");
