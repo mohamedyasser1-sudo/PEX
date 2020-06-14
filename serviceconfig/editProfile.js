@@ -84,13 +84,13 @@ $('document').ready(function() {
  $('.userLoggedName').text(localStorage.getItem('fname').slice(1, -1) + ' ' + localStorage.getItem('lname').slice(1, -1));
  $('.iimg').attr('src', localStorage.getItem('userimg').slice(1, -1));
 
-                 /*
+                 
                 $.notify("Info updated success", "success");
 
                 setTimeout(function() {
-                     location.reload();
-                }, 2000);
-*/
+                     window.location = "./profile.html";
+                }, 500);
+
                
 
 
