@@ -12,7 +12,8 @@ var serviceconfigScripts = {
 "getImgs": "getImgs",
 "profile": "profile",
 "forgetPassword": "forgetPassword",
-"restPassword": "restPassword"
+"restPassword": "restPassword",
+"uploadenhanceImage": "uploadenhanceImage"
 
 };
 
@@ -114,6 +115,9 @@ function LoadConfigScript() {
     break;
     case "rest-password.html":
     loadScript(serviceconfigScripts.restPassword, "config", function(){console.log("Complete load script");});
+    break;
+    case "uploadenhanceImage.html":
+    loadScript(serviceconfigScripts.uploadenhanceImage, "config", function(){console.log("Complete load script");});
     break;
 }
  

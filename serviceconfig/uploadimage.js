@@ -73,7 +73,7 @@ $('document').ready(function() {
          $.notify("Congrats, your Image uploaded", "success");
 
          setTimeout(function() {
-                   window.location = "./profile.html";
+                   //window.location = "./profile.html";
                 }, 1000);
         
         //$(self).after('<img class="img-reponsive" src="'+ response.data.picture.image +'">');
@@ -167,3 +167,28 @@ var catsLen = JSON.stringify(data.data.categories.length);
     
 
 })();
+
+
+function myFunction(){
+            var result = document.getElementById("checkBtn").checked;
+            
+
+            if(result == true)
+            {
+
+                document.getElementById("checkBtn").value = true;
+            }
+
+              if(result == false)
+            {
+                document.getElementById("checkBtn").value = false;
+            }
+
+ console.log(document.getElementById("checkBtn").value);
+    //alert(document.getElementById("checkBtn").value);
+         }
+
+
+  $('.btnUpload').click(function() {
+      myFunction();
+    });

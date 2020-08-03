@@ -8,7 +8,7 @@ console.log( page );
 
 var anonymousPages = ["forgot-password.html", "join.html", "login.html"];
 
-var authorizedPages = ["change-password.html", "edit-profile.html", "profile.html", "show-image.html", "upload.html"]; // For future use
+var authorizedPages = ["change-password.html", "edit-profile.html", "profile.html", "show-image.html", "upload.html", "uploadenhanceImage.html"]; // For future use
 
 
 

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Upload</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/preloading.css">
+    </head>
+    <body>
+        
+<div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+        
+
+        <div class="upload">
+            <div class="container">
+                <h2 class="text-center">Upload Photos</h2>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8">
+                        <div class="upload-box">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                           <!-- <p>Drag and drop a file here<br>or, if you prefer...</p>-->
+                            <span class="file-input btn btn-primary btn-file">
+                                Choose files 
+<form method="POST" id="uploadImgFormEn">
+                                <input type="file" name="image" onchange="submitUploadImgFormEn();" style="opacity: 0">
+                            </form>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6" id="oldPhoto">
+                        <div class="photo">
+                            <h3>Old Photos</h3>
+                            <img src="" class="img-fluid" alt="">
+                            <button class="photoBtn">Publish</button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6" id="newPhoto">
+                        <div class="photo">
+                            <h3>New Photos</h3>
+                            <img src="" class="img-fluid" alt="">
+                            <button class="photoBtn">Publish</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          <!-- Modal -->
+  <div class="modal fade" id="myModalEn" role="dialog">
+    <div class="modal-dialog modal-dialog-cus">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+         <!--<div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>-->
+        <div class="modal-body">
+            <div class="show-image">
+            <span class="close-btn " data-dismiss="modal">x</span>
+
+
+            <form class="form-horizontal" method="POST" id="uploadImgForm">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control imgFreeText" name="name" id="name" placeholder="Enter a Name for your image">
+    </div>
+  </div>
+
+
+    <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
+    <div class="col-sm-10">
+
+<select id="imgCats" class="imgSelect form-control" name="category_id">
+  <option value="" disabled selected>Select your Category</option>
+</select>
+
+
+    </div>
+  </div>
+
+<input type="hidden" name="image" id="imgEn">
+    <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Tag</label>
+    <div class="col-sm-10">
+      <input type="password" name="caption" id="caption" placeholder="Enter tag for your image" class="imgFreeText form-control">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Caption</label>
+    <div class="col-sm-10">
+      <input type="password" name="caption" id="caption" placeholder="Enter a caption for your image" class="imgFreeText form-control">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn file-upload-btn upload-btn" value="Upload">
+    </div>
+  </div>
+</form>
+
+        </div>
+
+        </div>
+        <!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>-->
+      </div>
+      
+    </div>
+  </div>
+
+
+<script src="./js/jquery-3.3.1.min.js"></script>
+     <script src="./js/dynamicallyLoadScript.js"></script>
+    </body>
+</html>

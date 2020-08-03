@@ -1064,3 +1064,20 @@ a:hover {
 #fileeditpro [type="file"]:focus + label {
   outline: 1px dotted #000;
 }
+
+
+#oldPhoto, #newPhoto {
+  display: none;
+}
+
+.checkBoxF {
+  position: relative;
+    top: -36px;
+}
+
+
+.btnUpload {
+  position: relative;
+    top: -17px;
+    padding: 3px 20px;
+}
